@@ -1,0 +1,15 @@
+= Trabajo Práctico Inicial: Laboratorio de construcción de software - Comisión 1
+Ignacio Franco_Barrientos <ifbarrientos@outlook.com>; Tomas Mandril <mandriltom18@gmail.com>; Lucrecia Verón <lucreciaveron.99@gmail.com>
+:toc:
+:toc-title: Contenido
+:icons: font
+:source-highlighter: highlight.js
+:leveloffset: 0.
+:imagesdir: ./
+:data-uri:
+
+== Introducción
+
+En este repositorio se agregarán los estudios y archivos de programa relacionados al trabajo practico inicial del laboratorio de construcción de software.
+
+El objetivo que se desea lograr para este trabajo practico es construir un programa que utilice metodos relacionados a la ciencia de datos o Big Data y que haga predicciones o estimaciones utilizando la Inteligencia Artificial (IA).
