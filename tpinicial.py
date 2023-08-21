@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[24]:
+# In[49]:
 
 
 import pandas as pd
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+from sklearn.linear_model import LogisticRegression
 
 
 # In[41]:
@@ -41,7 +42,7 @@ mydataset['departamento_id']
 mydataset[['departamento_nombre', 'cantidad_casos']]
 
 
-# In[32]:
+# In[66]:
 
 
 mydataset.plot.scatter(x='cantidad_casos', y='provincia_nombre')
@@ -55,25 +56,53 @@ mydataset.plot.scatter(x='cantidad_casos', y='departamento_nombre')
 plt.show()
 
 
-# In[42]:
+# In[44]:
 
 
-agrupado_suma = mydataset.groupby('departamento_nombre')['cantidad_casos'].sum()
-print(agrupado_suma)
+mydataset.plot.scatter(x='semanas_epidemiologicas', y='cantidad_casos')
+plt.show()
 
 
-# In[38]:
+# In[72]:
 
 
-agrupado_suma = mydataset.groupby('provincia_nombre')['cantidad_casos'].sum()
-print(agrupado_suma)
+agrupado_semanas = mydataset.groupby('semanas_epidemiologicas')['cantidad_casos'].sum()
+print(agrupado_semanas)
 
 
-# In[43]:
+# In[70]:
 
 
-agrupado_suma = mydataset.groupby('grupo_edad_desc')['cantidad_casos'].sum()
-print(agrupado_suma)
+agrupado_departamento = mydataset.groupby('departamento_nombre')['cantidad_casos'].sum()
+print(agrupado_departamento)
+
+
+# In[71]:
+
+
+agrupado_provincia = mydataset.groupby('provincia_nombre')['cantidad_casos'].sum()
+print(agrupado_provincia)
+
+
+# In[69]:
+
+
+agrupado_edad = mydataset.groupby('grupo_edad_desc')['cantidad_casos'].sum()
+print(agrupado_edad)
+
+
+# In[77]:
+
+
+ejemplo = np.array(agrupado_departamento)
+print(ejemplo)
+
+
+# In[75]:
+
+
+ejemplo2 = mydataset.groupby(['departamento_nombre', 'cantidad_casos'])
+print(ejemplo2)
 
 
 # In[30]:
@@ -82,10 +111,10 @@ print(agrupado_suma)
 mydataset.head()
 
 
-# In[ ]:
+# In[62]:
 
 
-
+mydataset = pd.DataFrame(mydataset)
 
 
 # In[31]:
@@ -95,11 +124,31 @@ x = mydataset.values
 print (x)
 
 
-# In[34]:
+# In[67]:
 
 
-casos_departamento = mydataset[['departamento_nombre', 'cantidad_casos']].values
-print (casos_departamento)
+
+
+
+# In[88]:
+
+
+departamentos = np.array(mydataset['departamento_id'])
+print(departamentos)
+
+
+# In[57]:
+
+
+cantidad = np.array(mydataset['cantidad_casos'])
+print(cantidad)
+
+
+# In[82]:
+
+
+regresion_logistica = LogisticRegression()
+regresion_logistica.fit(departamentos,cantidad)
 
 
 # In[ ]:
