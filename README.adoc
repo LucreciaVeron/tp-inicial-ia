@@ -13,3 +13,4 @@ Ignacio Franco_Barrientos <ifbarrientos@outlook.com>; Tomas Mandril <mandriltom1
 En este repositorio se agregarán los estudios y archivos de programa relacionados al trabajo practico inicial del laboratorio de construcción de software.
 
 El objetivo que se desea lograr para este trabajo practico es construir un programa que utilice metodos relacionados a la ciencia de datos o Big Data y que haga predicciones o estimaciones utilizando la Inteligencia Artificial (IA).
+
