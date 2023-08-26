@@ -6,7 +6,8 @@ import pandas as pd
 import numpy as np
 import os
 import matplotlib.pyplot as plt
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
 
 
 mydataset = pd.read_csv("./2022-new.csv")
@@ -67,7 +68,7 @@ x = mydataset.values
 #print(x)
 
 
-departamentos = np.array(mydataset['departamento_id']).reshape(-1,1)
+departamentos = np.array(mydataset['grupo_edad_id']).reshape(-1,1)
 print("LO DE DEPARTAMENTOS ////////////////////////////////////")
 print(departamentos)
 
@@ -75,7 +76,13 @@ cantidad = np.array(mydataset['cantidad_casos'])
 print("LO DE CANTIDAD ////////////////////////////////////")
 print(cantidad)
 
-regresion_logistica = LogisticRegression(solver = 'lbfgs', max_iter=10000)
-regresion_logistica.fit(departamentos, cantidad)
-predicted = regresion_logistica.predict(np.array([720]).reshape(-1,1))
+Dep_train, Dep_test, cant_train, cant_test = train_test_split(departamentos, cantidad, test_size = 0.25)
+
+regresion_lineal= LinearRegression()
+regresion_lineal.fit(Dep_train, cant_train)
+
+
+
+predicted = regresion_lineal.score(Dep_test, cant_test)
+
 print(predicted)
