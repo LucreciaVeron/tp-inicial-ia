@@ -81,8 +81,6 @@ Dep_train, Dep_test, cant_train, cant_test = train_test_split(departamentos, can
 regresion_lineal= LinearRegression()
 regresion_lineal.fit(Dep_train, cant_train)
 
-
-
 predicted = regresion_lineal.score(Dep_test, cant_test)
 
 print(predicted)
