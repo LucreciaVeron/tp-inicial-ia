@@ -38,7 +38,7 @@ cant = np.array(anio_2021['cantidad_casos'])
 counter = Counter(cant)
 print(counter)
 
-X_train, X_test, y_train, y_test = train_test_split(mes, cant, test_size=0.15, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(mes, cant, test_size=0.30, random_state=0)
 
 regresion_lineal= LinearRegression()
 regresion_lineal.fit(X_train,y_train)
