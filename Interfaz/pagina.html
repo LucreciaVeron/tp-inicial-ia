@@ -1,0 +1,33 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="inicio">
+
+        Edad: <input type="text" name="edad"><br>
+        Género:
+        <select name="genero">
+            <option value="0">Hombre</option>
+            <option value="1">Mujer</option>
+        </select><br>
+        <!-- Otros campos que puedas necesitar -->
+        <button onclick="mostrarResultados()"> Predecir </button>
+    </div>
+    <div style="display: none" id="resultados">
+        <h1>Resultado de la predicción:</h1>
+        <p> {{ prediction }}</p>
+    </div>
+</body>
+
+</html>
+<script>
+    function getE(id) {
+        return document.getElementById(id);
+    }
+
+    function mostrarResultados() {
+        getE('resultados').style.display = 'inline';
+        getE('inicio').style.display = 'none';
+    }
+</script>
