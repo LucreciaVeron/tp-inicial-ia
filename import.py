@@ -1,20 +1,17 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Aug 19 18:02:41 2023
-
-@author: Nacho
-"""
 import pandas as pd
+import random
 
-# Load the entire dataset
-# Replace 'your_dataset.csv' with the actual file name and path
+# Load your dataset into a DataFrame (replace 'your_dataset.csv' with your dataset file)
 df = pd.read_csv('Covid19Casos.csv')
 
-# Extract the first 15000 rows
-subset_df = df.head(15000)
+# Check if the dataset has at least 15,000 unique rows; if not, use the current number of unique rows
+num_rows_to_select = min(10000, len(df))
 
-# Save the extracted subset to a new CSV file
-# Replace 'subset_output.csv' with the desired output file name and path
-subset_df.to_csv('subset_output.csv', index=False)
+# Generate a list of unique random row indices
+random_indices = random.sample(range(len(df)), num_rows_to_select)
 
-print("Subset saved to 'subset_output.csv'")
+# Select the rows with the randomly generated indices
+random_sample = df.iloc[random_indices]
+
+# If you want to save the random sample to a new CSV file, you can use:
+random_sample.to_csv('./Datos/random_sample.csv', index=False)
